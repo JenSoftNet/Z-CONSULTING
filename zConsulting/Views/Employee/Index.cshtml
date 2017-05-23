@@ -1,0 +1,55 @@
+@using System.Runtime.InteropServices.ComTypes
+@using Microsoft.AspNetCore.Mvc.Localization
+@model zConsulting.Models.Business.ExpertViewModel
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer[Model.Title];
+}
+
+<section class="gardient-bg-small">
+    <div class="container">
+        <h1 class="pull-left">@Localizer[Model.Title]</h1>
+        <div class="pull-right">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index", "Home")">Home</a>
+                </li>
+                <li class="active">@Localizer[Model.Title]</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section id="meet-Trainers" class="grey-bg">
+    <!-- Container -->
+    <div class="container">
+        <!-- Section Title 
+        <div class="section-title text-center mb30">
+            <h2 class="animated" data-animation="bounceInLeft">@Localizer[Model.Title]</h2>
+        </div> ./end Section Title -->
+
+        <div class="row">
+            @foreach (var expert in Model.Experts)
+            {
+                <div class="col-md-4">
+                    <div class="employee-box mb30">
+                        <img src="@expert.Photo" alt="@expert.FullName">
+                        <div class="employee-box-content">
+                            <a href="@Url.Action("Details", "Employee",  new { id = expert.ID })">
+                                <h3>@expert.FullName</h3>
+                                <p>@expert.ShortDescription</p>
+                            </a>
+                            <p class="employee-box-info">@expert.Activities.LastOrDefault().Name</p><br>
+                            <div class="employee-social">
+                                <i class="fa fa-phone"></i>
+                                <i class="fa fa-skype"></i>
+                                <i class="fa fa-facebook"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div> <!-- ./end Row -->
+    </div> <!--./end container-->
+</section>

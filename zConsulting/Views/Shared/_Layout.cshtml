@@ -1,0 +1,177 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="zConsulting site">
+    <meta name="author" content="JenSoft 2017">
+
+    <!-- Bootstrap -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Web Fonts -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Josefin+Sans" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Date Picker -->
+    <link href="~/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="~/css/animate.css">
+    <!-- Template CSS Files  -->
+    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/css/media.css" rel="stylesheet">
+
+    <script src="~/js/jquery-1.9.1.min.js"></script>
+
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar hidden-sm hidden-xs">
+        <!-- Container -->
+        <div class="container">
+            <!-- Row -->
+            <div class="row">
+
+                <div class="col-sm-6 col-xs-12">
+                    <ul class="list-unstyled list-inline">
+                        <li><p><i class="fa fa-clock-o"></i> Комплексное сопровождение бизнеса: тел 096 875 43 45</p></li>
+                        <!-- <li><p><i class="fa fa-phone"></i> Call us +44 558 558 558</p></li>-->
+                    </ul>
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                    <div class="pull-right">
+                        <div class="dropdown">
+                            <span><i class="fa fa-globe"></i> Language: </span><span class="dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Русский <span class="caret"></span></span>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownLang">
+                                <li><a href="#">Русский</a></li>
+                                <li><a href="#">English</a></li>
+                                <li><a href="#">French</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- ./end Row -->
+        </div> <!-- ./end Container -->
+    </div>
+    <!-- End / Top Bar -->
+    <!-- Nav -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- LOGO -->
+            <div class="col-md-4 mt10">
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="~/img/logo_line.png" alt="zConsulting" class="hidden-xs hidden-sm">
+                </a>
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Главная</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">О нас</a></li>
+                    <li><a asp-area="" asp-controller="Business" asp-action="Outsourcing">Аутсорсинг</a></li>
+                    <li><a asp-area="" asp-controller="Business" asp-action="Outstaffing">Аутстаффинг</a></li>
+                    <li><a asp-area="" asp-controller="Employee" asp-action="Index">Эксперты</a></li>
+                    <!--<li><a asp-area="" asp-controller="Blog" asp-action="Index">Новости</a></li>-->
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Контакты</a></li>
+                </ul>
+                <!--@await Html.PartialAsync("_LoginPartial")-->
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+    <footer>
+        <!-- Container -->
+        <div class="container">
+            <!-- Row Begin -->
+            <div class="row">
+
+                <div class="col-md-3 mt10">
+                    <div class="widget">
+                        <a href="@Url.Action("Index", "Home")">
+                            <img src="~/img/logo_line.png" alt="zConsulting" class="hidden-xs hidden-sm">
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="widget">
+                        <h3>
+                            Socials <span class="bottom-lin"></span>
+                        </h3>
+                        <ul>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                            <li>Youtube</li>
+                            <li>Linkedin</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="widget">
+                        <h3>About Us</h3>
+                        <ul>
+
+                            <li><a href="@Url.Action("About", "Home")">О нас</a></li>
+                            <li><a href="@Url.Action("Outsourcing", "Business")">Аутсорсинг</a></li>
+                            <li><a href="@Url.Action("Index", "Employee")">Эксперты</a></li>
+                            <li><a href="@Url.Action("Contact", "Home")">Контакты</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="widget">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li>Днепр, ул. Благоева, 31, Украина</li>
+                            <li>Phone: +38 (096) 875-43-45</li>
+                            <li>Email: office@z-consulting.com.ua</li>
+                            <li>Office Offers: 09:00am - 17:00pm</li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- ./end Row -->
+        </div> <!-- ./end Container -->
+        <!-- Footer Copyright -->
+        <div class="footer-slogan">
+            &copy; 2017 zConsulting
+        </div>
+        <!-- ./end Footer Copyright -->
+    </footer>
+    <!-- Scroll to top -->
+    <div class="scroll-top">
+        <a href="#totop"><i class="fa fa-angle-double-up"></i></a>
+    </div>
+
+    <!-- Script Files -->
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/jquery.easing.min.js"></script>
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <script src="~/js/jquery.appear.js"></script>
+    <script src="~/js/jquery.countTo.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

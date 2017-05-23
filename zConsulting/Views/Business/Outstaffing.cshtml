@@ -1,0 +1,78 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@model zConsulting.Models.Business.OutstaffingViewModel
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer[@Model.Title];
+}
+
+<section class="gardient-bg-small">
+    <div class="container">
+        <h1 class="pull-left">@Localizer[@Model.Title]</h1>
+        <div class="pull-right">
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li class="active">@Localizer[@Model.Title]</li>
+            </ol>
+        </div>
+    </div>
+</section>
+<section id="outstaffing-main-text" class="no-bottom-padding-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb30">
+                <p><span>@Localizer[@Model.Title]</span> @Model.SectionTitle</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @foreach (var paragraph in @Model.MainTextFirstLevel)
+                {
+                    <p>@paragraph</p><br>
+                }
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mb10">
+                <p>@Model.UnorderedListOne.ListCaption</p>
+            </div>
+            <div class="col-md-12">
+                <ul>
+                    @foreach (var listItem in @Model.UnorderedListOne.Items)
+                    {
+                        <li>
+                            <p>@listItem</p><br>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mb30">
+                <p>@Model.UnorderedListTwo.ListCaption</p>
+            </div>
+            <div class="col-md-12">
+                <ul>
+                    @foreach (var listItem in @Model.UnorderedListTwo.Items)
+                    {
+                        <li>
+                            <p>@listItem</p><br>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="outstaffing-footer" class="default-bg bg-overlay-blue-50" style="background-image: url('/img/bg/bg-8.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb10 text-center">
+                <p>@Model.SectionFooter</p>
+                <a href="@Url.Action("Contact", "Home")" class="btn medium" data-animation="animated bounceInUp">@Localizer[@Model.Connect]</a>
+            </div>
+        </div>
+    </div>
+</section>

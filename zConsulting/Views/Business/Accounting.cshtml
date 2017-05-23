@@ -1,0 +1,37 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Accounting";
+}
+
+<section class="gardient-bg-small">
+    <div class="container">
+        <h1 class="pull-left">ќ нас</h1>
+        <div class="pull-right">
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li class="active">Outsourcing</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section id="about-us" class="no-bottom-padding-bg">
+    <div class="container">
+        <div class="row">
+            <div class="section-title text-right">
+                <p class="text-blue animated" data-animation="bounceInLeft">ј”“—ќ–—»Ќ√ (от англ. Ђoutsourcingї) Ч если переводить дословно означает Ђиспользование чужого ресурсаї. </p>
+            </div>
+            <div class="col-md-6">
+                <img src="~/img/outsourcing.jpg" alt="Outsourcing">
+            </div>
+            <div class="col-md-6">
+                <p>
+                    ј”“—ќ–—»Ќ√ (от англ. Ђoutsourcingї) Ч если переводить дословно означает Ђиспользование чужого ресурсаї.
+                    ƒругими словами аутсорсинг Ц это передача одной компанией на основании договора определенных бизнес-процессов или непрофильных функций на обслуживание другой компании (аутсорсеру), котора€ специализируетс€ в соответствующей области. “акие действи€ позвол€ют освободитьс€ от непрофильных дл€ компании функций и полностью сконцентрироватьс€ на основной де€тельности предпри€ти€. ѕри этом работники компании аутсорсера остаютс€ на своих рабочих местах (выполн€ют задачи дистанционно) и числ€тс€ в штате компании аутсорсера.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,47 @@
+@using System.Runtime.InteropServices.ComTypes
+@using Microsoft.AspNetCore.Mvc.Localization
+@model zConsulting.Models.Business.Expert
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<section class="gardient-bg-small">
+    <div class="container">
+        <h1 class="pull-left">@Localizer[@Model.FullName]</h1>
+        <div class="pull-right">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index", "Home")">Home</a>
+                </li>
+                <li class="active">@Localizer[@Model.FullName]</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section id="employee-details" class="no-bottom-padding-bg">
+    <div class="container">
+        <div class="row mb10">
+            <div class="section-title text-center">
+                <p class="text-blue animated" data-animation="bounceInLeft"> @Localizer[@Model.Position]</p><br>
+            </div>
+        </div>
+        <div class="row mb30">
+            <div class="col-md-6">
+                <img src="@Model.Photo" alt=@Localizer[@Model.FullName]>
+            </div>
+            <div class="col-md-6">
+                <ul>
+                    @foreach (var listItem in @Model.Activities)
+                    {
+                        <li>
+                            <p>@listItem.Name</p><br>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

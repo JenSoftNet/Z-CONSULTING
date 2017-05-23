@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+@section scripts {
+    <script>
+        var map;
+        function InitializeMap() {
+            var latlng = { lat: 48.452386, lng: 35.024688 };
+            var myOptions = {
+                zoom: 12,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var mapContainer = $("#map_canvas");
+            var map = new google.maps.Map(mapContainer[0], myOptions);
+
+            var marker = new google.maps.Marker({
+                position: latlng,
+                map: map,
+                title: 'Наши офисы'
+            });
+            var infowindow = new google.maps.InfoWindow({
+                content: 'Днепр, ул. Благоева, 31'
+            });
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
+    <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAMOREGZOWwblbVssF77dk3isIC-L7XaG4&callback=InitializeMap" type="text/javascript"></script>
+}
+
+<section class="gardient-bg-small">
+    <div class="container">
+        <h1 class="pull-left">КОНТАКТЫ</h1>
+        <div class="pull-right">
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li class="active">КОНТАКТЫ</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section id="contact-us" class="default-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p>Если у Вас возникли вопросы по процессам аутсорсинга, аутстаффинга или бухгалтерского сопровождения бизнеса, либо Вы уже решили оптимизировать работу компании, свяжитесь с нами удобным для Вас способом.</p>
+                <p>Наши эксперты проконсультируют и предложат Вам лучшие решения.</p><br>
+                <p>Телефон:</p><br>
+                <blockquote>
+                    <p>+38 (096) 875-43-45</p>
+                </blockquote>
+                <p>E-mail:</p><br>
+                <blockquote>
+                    <p>office@z-consulting.com.ua</p>
+                </blockquote>
+                <p>Наши офисы:</p><br>
+                <blockquote>
+                    <p>Днепр, ул. Благоева, 31.</p>
+                </blockquote>
+            </div>
+            <div class="col-md-6">
+                <form action="#" id="contact">
+                    <input type="text" class="form-control" placeholder="Name" required>
+                    <input type="text" class="form-control" placeholder="Email" required>
+                    <textarea placeholder="Message" class="form-control" required></textarea>
+                    <input type="submit" class="btn blue medium" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="map_canvas"></div>
+            </div>
+        </div>
+    </div>
+</section>

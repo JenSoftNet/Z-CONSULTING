@@ -1,0 +1,35 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@model zConsulting.Models.Business.OutsourcingViewModel
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer[Model.Title];
+}
+
+<section class="gardient-bg-small">
+    <div class="container">
+        <h1 class="pull-left">@ViewData["Title"]</h1>
+        <div class="pull-right">
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li class="active">@ViewData["Title"]</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section id="about-us" class="no-bottom-padding-bg">
+    <div class="container">
+        <div class="row">
+            <div class="section-title text-right">
+                <p class="text-blue animated" data-animation="bounceInLeft"> @Localizer[@Model.SectionTitle]</p><br>
+            </div>
+            <div class="col-md-6 mb30">
+                <img src="~/img/outsourcing.jpg" alt="Outsourcing">
+            </div>
+            <div class="col-md-6">
+                <p>@Localizer[@Model.SectionMainText]</p> <br>
+            </div>
+        </div>
+    </div>
+</section>
